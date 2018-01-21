@@ -25,6 +25,26 @@
             font-size: 20px;
         }
 
+        .petTable {
+            width: 400px;
+            margin: 10px;
+            /*text-wrap: normal;*/
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+
+        .images {
+            border: 1px;
+        }
+
+        .description{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 500px;
+
+        }
+
 
     </style>
 
@@ -37,15 +57,27 @@
 <br/>
 
 <div class="objects">
-    <table>
+    <table class="petTable">
+
     <tbody>
             <tr th:each="pets: ${petList}">
-            <a th:href="${pets.petURL}"><h4><tr th:text="${pets.name}" >Zwierz</tr></h4></a>
+                <div>
+                    <tr>
+                        <th rowspan="2"><a th:href="${pets.petURL}"> <img src="animal.jpg" alt="No image"/></a> </th>
+                        <h4><td><a th:href="${pets.petURL}" th:text="${pets.name}" >Zwierz</a></td></h4>
+                    </tr>
+                </div>
 
-            <tr><br/></tr>
-            <tr><br/></tr>
+                <div>
 
-        </tr>
+                    <td class="description"><p th:text="${pets.description}">opis</p></td>
+
+                </div>
+
+                <!--<tr><br/></tr>-->
+                <!--<tr><br/></tr>-->
+
+            </tr>
     </tbody>
 </table>
 </div>
