@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="content-type" context="text/html"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <title>Schronisko Reksio i Klakier</title>
+
+    <style type="text/css">
+
+        .head {
+            background: rgba(0, 0, 0, 0.2);
+            height: 60px;
+            padding: 10px;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        .introduction {
+            margin-left: 30px;
+
+        }
+
+        .objects {
+            margin-left: 45px;
+            font-size: 20px;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<h3 class="head">Schronisko Reksio i Klakier</h3>
+
+<h4 class="introduction">Zwierzaki szukające domu</h4>
+<br/>
+
+<div class="objects">
+    <table>
+    <tbody>
+            <tr th:each="pets: ${petList}">
+            <a th:href="${pets.petURL}"><h4><tr th:text="${pets.name}" >Zwierz</tr></h4></a>
+
+            <tr><br/></tr>
+            <tr><br/></tr>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+</body>
+</html>
