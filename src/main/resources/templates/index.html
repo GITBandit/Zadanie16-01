@@ -35,6 +35,9 @@
 
         .images {
             border: 1px;
+            border-color: black;
+            border-style: solid;
+
         }
 
         .description{
@@ -45,6 +48,14 @@
 
         }
 
+        .menu {
+            margin-left: 30px;
+        }
+
+        .menuOptions {
+            margin-right: 5px;
+        }
+
 
     </style>
 
@@ -52,6 +63,14 @@
 </head>
 <body>
 <h3 class="head">Schronisko Reksio i Klakier</h3>
+
+<p class="menu">Kategorie :
+    <a class="menuOptions" href="/" >Wszystkie</a>
+    <a class="menuOptions" href="pies" >Psy</a>
+    <a class="menuOptions" href="kot" >Koty</a>
+    <a class="menuOptions" href="inne" >Inne</a>
+
+</p>
 
 <h4 class="introduction">Zwierzaki szukające domu</h4>
 <br/>
@@ -63,7 +82,7 @@
             <tr th:each="pets: ${petList}">
                 <div>
                     <tr>
-                        <th rowspan="2"><a th:href="${pets.petURL}"> <img src="animal.jpg" alt="No image"/></a> </th>
+                        <th class="images" rowspan="2"><a th:href="${pets.petURL}"> <img  src="animal.jpg" alt="No image"/></a> </th>
                         <h4><td><a th:href="${pets.petURL}" th:text="${pets.name}" >Zwierz</a></td></h4>
                     </tr>
                 </div>

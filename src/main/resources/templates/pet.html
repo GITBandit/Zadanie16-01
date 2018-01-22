@@ -2,12 +2,105 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8" http-equiv="content-type" context="text/html"/>
-    <!--<title>th:text="${pets.name}"</title>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <title>Schronisko Reksio i Klakier</title>
+
+    <style type="text/css">
+
+        .head {
+            background: rgba(0, 0, 0, 0.2);
+            height: 60px;
+            padding: 10px;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        .introduction {
+            margin-left: 30px;
+
+        }
+
+        .objects {
+            margin-left: 45px;
+            font-size: 20px;
+        }
+
+        .petTable {
+            width: 400px;
+            margin: 10px;
+            /*text-wrap: normal;*/
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+
+        .images {
+            border: 1px;
+            border-color: black;
+            border-style: solid;
+
+        }
+
+        .description{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 500px;
+
+        }
+
+        .menu {
+            margin-left: 30px;
+        }
+
+        .menuOptions {
+            margin-right: 5px;
+        }
+
+
+    </style>
+
+
 </head>
-
 <body>
+<h3 class="head">Schronisko Reksio i Klakier</h3>
 
-<h1 >zzz</h1>
-<!--<p th:text="${pets.name}>zzz</p>-->
+<p class="menu">Kategorie :
+    <a class="menuOptions" href="/" >Wszystkie</a>
+    <a class="menuOptions" href="pies" >Psy</a>
+    <a class="menuOptions" href="kot" >Koty</a>
+    <a class="menuOptions" href="inne" >Inne</a>
+
+</p>
+
+<h4 class="introduction">Zwierzaki szukające domu</h4>
+<br/>
+
+<div class="objects">
+    <table class="petTable">
+
+        <tbody>
+        <tr th:each="kind: ${kindList}">
+            <div>
+        <tr>
+            <th class="images" rowspan="2"><a th:href="${kind.petURL}"> <img  src="animal.jpg" alt="No image"/></a> </th>
+            <h4><td><a th:href="${kind.petURL}" th:text="${kind.name}" >Zwierz</a></td></h4>
+        </tr>
+</div>
+
+<div>
+
+    <td class="description"><p th:text="${kind.description}">opis</p></td>
+
+</div>
+
+<!--<tr><br/></tr>-->
+<!--<tr><br/></tr>-->
+
+</tr>
+</tbody>
+</table>
+</div>
+
+
 </body>
 </html>
