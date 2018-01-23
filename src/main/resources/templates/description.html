@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="content-type" context="text/html"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <title>Schronisko Reksio i Klakier</title>
+
+    <style type="text/css">
+
+        .head {
+            background: rgba(0, 0, 0, 0.2);
+            height: 60px;
+            padding: 10px;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        .introduction {
+            margin-left: 30px;
+            font-weight: bold;
+
+        }
+
+        .objects {
+            margin-left: 45px;
+        }
+
+        .petTable {
+            width: 400px;
+            margin: 10px;
+            /*text-wrap: normal;*/
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+
+        .images {
+            border: 1px;
+            border-color: black;
+            border-style: solid;
+
+        }
+
+        .description{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 500px;
+
+        }
+
+        .menu {
+            margin-left: 30px;
+        }
+
+        .menuOptions {
+            margin-right: 5px;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<h3 class="head">Schronisko Reksio i Klakier</h3>
+
+<p class="menu">
+
+</p>
+
+
+<div class="menuOptions, menu"><a href="/" >Powrót do listy</a><br/><br/></div>
+<h3 class="introduction" th:text="${pet.name}">Imie</h3><br/>
+<h4 class="objects" th:text="${pet.description}">Opis zwierzaka</h4>
+<br/>
+<h4 class="objects" th:text="${pet.descriptionLorem}">Lorem ipsum</h4>
+
+
+</body>
+</html>

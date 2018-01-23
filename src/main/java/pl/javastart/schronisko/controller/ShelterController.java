@@ -14,14 +14,17 @@ import java.util.List;
 @Controller
 public class ShelterController {
 
-    private PetStorage stor = new PetStorage();
-    private List<Pet> petList = stor.getPetList();
+    private PetStorage petStorage;
 
+        @Autowired
+    public ShelterController (PetStorage petStorage){
+        this.petStorage = petStorage;
+    }
 
     @GetMapping("/")
     public String mainPage(Model model){
 
-
+        ArrayList<Pet> petList = (ArrayList<Pet>)petStorage.getPetList();
         model.addAttribute("petList", petList);
 
         return "index";
@@ -29,6 +32,7 @@ public class ShelterController {
 
     @GetMapping("/{kind}")
     public String petPage(@PathVariable String kind, Model model){
+        ArrayList<Pet> petList = (ArrayList<Pet>)petStorage.getPetList();
         List<Pet> kindList = new ArrayList<>();
         for (Pet petKind : petList) {
             if (kind.equals(petKind.getKind())){
@@ -40,7 +44,19 @@ public class ShelterController {
         return "pet";
     }
 
+    @GetMapping("/desc/{name}")
+    public String descriptionPage(@PathVariable String name, Model model){
+        ArrayList<Pet> petList = (ArrayList<Pet>)petStorage.getPetList();
+        Pet pet = null;
+        for (Pet petNameList : petList) {
+            if (name.equals(petNameList.getName())){
+                pet = petNameList;
+            }
+        }
+        model.addAttribute("pet", pet);
 
+        return "description";
+    }
 
 
 }
